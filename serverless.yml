@@ -1,0 +1,32 @@
+service: projeto-upload-video
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  upload:
+    handler: handler.upload
+    events:
+      - http:
+          path: upload
+          method: post
+          cors: true
+
+  generateThumbnail:
+    handler: handler.generateThumbnail
+    events:
+      - s3:
+          bucket: video-upload-bucket
+          event: s3:ObjectCreated:*
+
+resources:
+  Resources:
+    VideoUploadBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: video-upload-bucket
+plugins: serverless offline
+
+ 

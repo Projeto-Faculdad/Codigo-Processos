@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "serverless-offline": "^14.3.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "offline": "serverless offline"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1692.0"
+  }
+}
