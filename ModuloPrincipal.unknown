@@ -1,0 +1,11 @@
+import { Module } from '@nestjs/common';
+import { LoginComponent } from './view/login.component';
+import { LoginModel } from './model/login.model';
+import { LoginController } from './controller/login.controller';
+
+@Module({
+  imports: [],
+  controllers: [LoginController],
+  providers: [LoginModel],
+})
+export class AppModule {}
